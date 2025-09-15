@@ -1,3 +1,10 @@
+const { serveHTTP } = require('stremio-addon-sdk');
+const builder = require('../builder'); // keep all your addon setup (stream handlers, etc.) in a separate file
+
+// Serverless handler
+module.exports = (req, res) => {
+  serveHTTP(builder.getInterface(), { req, res });
+};
 const { addonBuilder } = require('stremio-addon-sdk');
 const { extractor } = require('../unified-extractor');
 const { logger } = require('../logger');
